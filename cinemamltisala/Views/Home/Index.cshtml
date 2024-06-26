@@ -1,0 +1,36 @@
+﻿@model List<CinemaHall>
+
+<h2>Stato delle Sale</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Sala</th>
+            <th>Biglietti Venduti</th>
+            <th>Biglietti Ridotti</th>
+            <th>Posti Totali</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var hall in Model)
+            {
+                <tr>
+                    <td>@hall.Nome</td>
+                    <td>@hall.BigliettiVenduti</td>
+                    <td>@hall.BigliettiRidotti</td>
+                    <td>@hall.PostiTotali</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="4">Nessuna sala disponibile.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("SellTicket", "Home")">Vendita Biglietto</a>

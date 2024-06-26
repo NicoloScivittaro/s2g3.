@@ -1,0 +1,34 @@
+﻿@model Ticket
+
+<h2>Vendita Biglietto</h2>
+
+<form asp-action="SellTicket" method="post">
+    <div>
+        <label for="Nome">Nome:</label>
+        <input type="text" id="Nome" name="Nome" required />
+    </div>
+    <div>
+        <label for="Cognome">Cognome:</label>
+        <input type="text" id="Cognome" name="Cognome" required />
+    </div>
+    <div>
+        <label for="Sala">Sala:</label>
+        <select id="Sala" name="Sala" required>
+            <option value="SALA NORD">SALA NORD</option>
+            <option value="SALA EST">SALA EST</option>
+            <option value="SALA SUD">SALA SUD</option>
+        </select>
+    </div>
+    <div>
+        <label for="Ridotto">Biglietto Ridotto:</label>
+        <input type="checkbox" id="Ridotto" name="Ridotto" />
+    </div>
+    <button type="submit">Vendi Biglietto</button>
+</form>
+
+@if (!string.IsNullOrEmpty(ViewData["Error"] as string))
+{
+    <div style="color:red;">
+        @ViewData["Error"]
+    </div>
+}
